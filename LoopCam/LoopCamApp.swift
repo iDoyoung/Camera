@@ -9,9 +9,25 @@ import SwiftUI
 
 @main
 struct LoopCamApp: App {
+    
+    @Environment(\.scenePhase) var scenePhase
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CameraView(camera: CameraModel())
+                .onChange(of: scenePhase) { _, newPhase in
+                    switch newPhase {
+                    case .active:
+                        print("acive")
+                    case .inactive:
+                        print("inactive")
+                    case .background:
+                        print("background")
+                        
+                    @unknown default:
+                        break
+                    }
+                }
         }
     }
 }

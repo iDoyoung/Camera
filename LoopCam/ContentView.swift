@@ -1,13 +1,6 @@
-//
-//  ContentView.swift
-//  LoopCam
-//
-//  Created by Doyoung on 2/24/25.
-//
-
 import SwiftUI
 
-struct ContentView: View {
+struct CamcorderView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +13,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    CamcorderView()
 }

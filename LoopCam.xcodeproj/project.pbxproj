@@ -6,6 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7F6036262D6DC225005125E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F6036182D6DC225005125E9 /* Preview Assets.xcassets */; };
+		7F6036272D6DC225005125E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F6036222D6DC225005125E9 /* Assets.xcassets */; };
+		7F6036282D6DC225005125E9 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60361A2D6DC225005125E9 /* Camera.swift */; };
+		7F6036292D6DC225005125E9 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60361C2D6DC225005125E9 /* CameraModel.swift */; };
+		7F60362A2D6DC225005125E9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60361D2D6DC225005125E9 /* CameraView.swift */; };
+		7F60362B2D6DC225005125E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036232D6DC225005125E9 /* ContentView.swift */; };
+		7F60362C2D6DC225005125E9 /* LoopCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036242D6DC225005125E9 /* LoopCamApp.swift */; };
+		7F60362E2D6DC24F005125E9 /* View+DebugBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60362D2D6DC24F005125E9 /* View+DebugBorder.swift */; };
+		7F6036312D6EDDFD005125E9 /* RecordingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036302D6EDDFD005125E9 /* RecordingTimeView.swift */; };
+		7F6036382D6EE657005125E9 /* CameraUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036372D6EE657005125E9 /* CameraUI.swift */; };
+		7F60363A2D6F51B7005125E9 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036392D6F51B7005125E9 /* RecordButton.swift */; };
+		7F60363C2D6F5ED4005125E9 /* ThumbnailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60363B2D6F5ED4005125E9 /* ThumbnailButton.swift */; };
+		7F60363E2D6F6172005125E9 /* SwitchCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60363D2D6F6172005125E9 /* SwitchCameraButton.swift */; };
+		7F6036472D717229005125E9 /* DisplayResolutionAndHertzButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036462D717229005125E9 /* DisplayResolutionAndHertzButton.swift */; };
+		7F6036492D718212005125E9 /* RecordingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036482D718212005125E9 /* RecordingStatusView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		7F6035F12D6C40D3005125E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +45,24 @@
 		7F6035E02D6C40D2005125E9 /* LoopCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoopCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6035F02D6C40D3005125E9 /* LoopCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6035FA2D6C40D3005125E9 /* LoopCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F6036182D6DC225005125E9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7F60361A2D6DC225005125E9 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		7F60361C2D6DC225005125E9 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		7F60361D2D6DC225005125E9 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		7F6036222D6DC225005125E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7F6036232D6DC225005125E9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7F6036242D6DC225005125E9 /* LoopCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopCamApp.swift; sourceTree = "<group>"; };
+		7F60362D2D6DC24F005125E9 /* View+DebugBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+DebugBorder.swift"; sourceTree = "<group>"; };
+		7F6036302D6EDDFD005125E9 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
+		7F6036372D6EE657005125E9 /* CameraUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUI.swift; sourceTree = "<group>"; };
+		7F6036392D6F51B7005125E9 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		7F60363B2D6F5ED4005125E9 /* ThumbnailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailButton.swift; sourceTree = "<group>"; };
+		7F60363D2D6F6172005125E9 /* SwitchCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCameraButton.swift; sourceTree = "<group>"; };
+		7F6036462D717229005125E9 /* DisplayResolutionAndHertzButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayResolutionAndHertzButton.swift; sourceTree = "<group>"; };
+		7F6036482D718212005125E9 /* RecordingStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7F6035E22D6C40D2005125E9 /* LoopCam */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LoopCam;
-			sourceTree = "<group>";
-		};
 		7F6035F32D6C40D3005125E9 /* LoopCamTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LoopCamTests;
@@ -43,6 +71,11 @@
 		7F6035FD2D6C40D3005125E9 /* LoopCamUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LoopCamUITests;
+			sourceTree = "<group>";
+		};
+		7F6036322D6EE046005125E9 /* Extensions */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +108,7 @@
 		7F6035D72D6C40D2005125E9 = {
 			isa = PBXGroup;
 			children = (
-				7F6035E22D6C40D2005125E9 /* LoopCam */,
+				7F6036252D6DC225005125E9 /* LoopCam */,
 				7F6035F32D6C40D3005125E9 /* LoopCamTests */,
 				7F6035FD2D6C40D3005125E9 /* LoopCamUITests */,
 				7F6035E12D6C40D2005125E9 /* Products */,
@@ -90,6 +123,85 @@
 				7F6035FA2D6C40D3005125E9 /* LoopCamUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7F6036192D6DC225005125E9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7F6036182D6DC225005125E9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7F60361B2D6DC225005125E9 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				7F60361A2D6DC225005125E9 /* Camera.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		7F60361E2D6DC225005125E9 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				7F60362F2D6EDDE7005125E9 /* Views */,
+				7F60361C2D6DC225005125E9 /* CameraModel.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		7F60361F2D6DC225005125E9 /* View+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F60362D2D6DC24F005125E9 /* View+DebugBorder.swift */,
+			);
+			path = "View+Extensions";
+			sourceTree = "<group>";
+		};
+		7F6036202D6DC225005125E9 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7F60361F2D6DC225005125E9 /* View+Extensions */,
+				7F60361E2D6DC225005125E9 /* Camera */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7F6036212D6DC225005125E9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7F6036322D6EE046005125E9 /* Extensions */,
+				7F60361B2D6DC225005125E9 /* Camera */,
+				7F6036202D6DC225005125E9 /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7F6036252D6DC225005125E9 /* LoopCam */ = {
+			isa = PBXGroup;
+			children = (
+				7F6036192D6DC225005125E9 /* Preview Content */,
+				7F6036212D6DC225005125E9 /* Sources */,
+				7F6036222D6DC225005125E9 /* Assets.xcassets */,
+				7F6036232D6DC225005125E9 /* ContentView.swift */,
+				7F6036242D6DC225005125E9 /* LoopCamApp.swift */,
+			);
+			path = LoopCam;
+			sourceTree = "<group>";
+		};
+		7F60362F2D6EDDE7005125E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7F60361D2D6DC225005125E9 /* CameraView.swift */,
+				7F6036302D6EDDFD005125E9 /* RecordingTimeView.swift */,
+				7F6036372D6EE657005125E9 /* CameraUI.swift */,
+				7F6036392D6F51B7005125E9 /* RecordButton.swift */,
+				7F60363B2D6F5ED4005125E9 /* ThumbnailButton.swift */,
+				7F60363D2D6F6172005125E9 /* SwitchCameraButton.swift */,
+				7F6036462D717229005125E9 /* DisplayResolutionAndHertzButton.swift */,
+				7F6036482D718212005125E9 /* RecordingStatusView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,7 +220,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				7F6035E22D6C40D2005125E9 /* LoopCam */,
+				7F6036322D6EE046005125E9 /* Extensions */,
 			);
 			name = LoopCam;
 			packageProductDependencies = (
@@ -212,6 +324,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F6036262D6DC225005125E9 /* Preview Assets.xcassets in Resources */,
+				7F6036272D6DC225005125E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +350,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F6036492D718212005125E9 /* RecordingStatusView.swift in Sources */,
+				7F60362E2D6DC24F005125E9 /* View+DebugBorder.swift in Sources */,
+				7F6036282D6DC225005125E9 /* Camera.swift in Sources */,
+				7F6036472D717229005125E9 /* DisplayResolutionAndHertzButton.swift in Sources */,
+				7F6036292D6DC225005125E9 /* CameraModel.swift in Sources */,
+				7F60362A2D6DC225005125E9 /* CameraView.swift in Sources */,
+				7F60363A2D6F51B7005125E9 /* RecordButton.swift in Sources */,
+				7F60362B2D6DC225005125E9 /* ContentView.swift in Sources */,
+				7F6036312D6EDDFD005125E9 /* RecordingTimeView.swift in Sources */,
+				7F60362C2D6DC225005125E9 /* LoopCamApp.swift in Sources */,
+				7F6036382D6EE657005125E9 /* CameraUI.swift in Sources */,
+				7F60363E2D6F6172005125E9 /* SwitchCameraButton.swift in Sources */,
+				7F60363C2D6F5ED4005125E9 /* ThumbnailButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,8 +529,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -431,8 +557,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
