@@ -11,10 +11,14 @@ import SwiftUI
 struct LoopCamApp: App {
     
     @Environment(\.scenePhase) var scenePhase
+    @State private var camera = CameraModel()
     
     var body: some Scene {
         WindowGroup {
-            CameraView(camera: CameraModel())
+            CameraView(camera: camera)
+                .task {
+                    await camera.start()
+                }
                 .onChange(of: scenePhase) { _, newPhase in
                     switch newPhase {
                     case .active:

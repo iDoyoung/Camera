@@ -22,6 +22,11 @@
 		7F60363E2D6F6172005125E9 /* SwitchCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60363D2D6F6172005125E9 /* SwitchCameraButton.swift */; };
 		7F6036472D717229005125E9 /* DisplayResolutionAndHertzButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036462D717229005125E9 /* DisplayResolutionAndHertzButton.swift */; };
 		7F6036492D718212005125E9 /* RecordingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036482D718212005125E9 /* RecordingStatusView.swift */; };
+		7F6036572D728AE7005125E9 /* CaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036562D728AE7005125E9 /* CaptureService.swift */; };
+		7F6036652D732480005125E9 /* CameraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036642D732480005125E9 /* CameraError.swift */; };
+		7F6036672D751B5A005125E9 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036662D751B5A005125E9 /* CameraPreview.swift */; };
+		7F60366A2D75735B005125E9 /* CameraStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036692D75735B005125E9 /* CameraStatus.swift */; };
+		7F60366C2D75C9E9005125E9 /* PreviewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60366B2D75C9E9005125E9 /* PreviewSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,11 @@
 		7F60363D2D6F6172005125E9 /* SwitchCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCameraButton.swift; sourceTree = "<group>"; };
 		7F6036462D717229005125E9 /* DisplayResolutionAndHertzButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayResolutionAndHertzButton.swift; sourceTree = "<group>"; };
 		7F6036482D718212005125E9 /* RecordingStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingStatusView.swift; sourceTree = "<group>"; };
+		7F6036562D728AE7005125E9 /* CaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureService.swift; sourceTree = "<group>"; };
+		7F6036642D732480005125E9 /* CameraError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraError.swift; sourceTree = "<group>"; };
+		7F6036662D751B5A005125E9 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		7F6036692D75735B005125E9 /* CameraStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStatus.swift; sourceTree = "<group>"; };
+		7F60366B2D75C9E9005125E9 /* PreviewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -137,6 +147,10 @@
 			isa = PBXGroup;
 			children = (
 				7F60361A2D6DC225005125E9 /* Camera.swift */,
+				7F6036562D728AE7005125E9 /* CaptureService.swift */,
+				7F6036642D732480005125E9 /* CameraError.swift */,
+				7F6036662D751B5A005125E9 /* CameraPreview.swift */,
+				7F60366B2D75C9E9005125E9 /* PreviewSource.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -144,8 +158,8 @@
 		7F60361E2D6DC225005125E9 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				7F6036682D75734F005125E9 /* Models */,
 				7F60362F2D6EDDE7005125E9 /* Views */,
-				7F60361C2D6DC225005125E9 /* CameraModel.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -202,6 +216,15 @@
 				7F6036482D718212005125E9 /* RecordingStatusView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7F6036682D75734F005125E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F60361C2D6DC225005125E9 /* CameraModel.swift */,
+				7F6036692D75735B005125E9 /* CameraStatus.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,9 +383,14 @@
 				7F60362B2D6DC225005125E9 /* ContentView.swift in Sources */,
 				7F6036312D6EDDFD005125E9 /* RecordingTimeView.swift in Sources */,
 				7F60362C2D6DC225005125E9 /* LoopCamApp.swift in Sources */,
+				7F60366C2D75C9E9005125E9 /* PreviewSource.swift in Sources */,
+				7F6036672D751B5A005125E9 /* CameraPreview.swift in Sources */,
 				7F6036382D6EE657005125E9 /* CameraUI.swift in Sources */,
+				7F6036572D728AE7005125E9 /* CaptureService.swift in Sources */,
+				7F60366A2D75735B005125E9 /* CameraStatus.swift in Sources */,
 				7F60363E2D6F6172005125E9 /* SwitchCameraButton.swift in Sources */,
 				7F60363C2D6F5ED4005125E9 /* ThumbnailButton.swift in Sources */,
+				7F6036652D732480005125E9 /* CameraError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +554,7 @@
 				DEVELOPMENT_TEAM = 3XVAQ6DRC4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -554,6 +583,7 @@
 				DEVELOPMENT_TEAM = 3XVAQ6DRC4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

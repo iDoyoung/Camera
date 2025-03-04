@@ -27,6 +27,7 @@ actor CaptureService {
     func start() async throws {
         guard await isAuthorized, !session.isRunning else { return }
         
+        try setupSession()
         session.startRunning()
     }
     
@@ -77,6 +78,7 @@ actor CaptureService {
     }
     
     // MARK: - Preview handling
+    nonisolated var previewSource: PreviewSource { DefaultPreviewSource(session: session) }
     
     // MARK: - Display resolution and hertz handling
     

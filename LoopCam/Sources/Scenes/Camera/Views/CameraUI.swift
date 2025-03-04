@@ -63,19 +63,14 @@ struct CameraUI<CameraModel: Camera>: View {
                 motionManager.deviceMotionUpdateInterval = 0.5
                 motionManager.startDeviceMotionUpdates(to: queue) { motion, error in
                     if let motion {
-                        // 방향 판단 로직
-                        // 절대값이 임계값보다 큰 경우 방향 변화로 간주
                         DispatchQueue.main.async {
                             if abs(motion.attitude.roll) > 0.9 {
                                 if motion.attitude.roll < 0 {
                                     deviceOrientation = .landscapeLeft
-                                    print(motion.attitude.roll)
                                 } else if motion.attitude.roll > 0 {
                                     deviceOrientation = .landscapeRight
                                 }
                             } else {
-                                // 임계값보다 작으면 portrait 모드로 판단
-                                print("???")
                                 deviceOrientation = .portrait
                             }
                         }
@@ -83,15 +78,8 @@ struct CameraUI<CameraModel: Camera>: View {
                 }
             }
         }
+        .padding(.bottom)
     }
-    
-//    private func rotationAngle(for orientation: DeviceOrientation) -> Angle {
-//        switch orientation {
-//        case .portrait: return Angle.degrees(0)
-//        case .landscapeLeft: return Angle.degrees(90)
-//        case .landscapeRight: return Angle.degrees(-90)
-//        }
-//    }
 }
 
 #Preview {
