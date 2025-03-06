@@ -18,14 +18,14 @@ struct CameraUI<CameraModel: Camera>: View {
     var body: some View {
         ZStack {
             HStack {
-                RecordingTimeView(time: .init())
+                RecordingTimeView(time: camera.captureActivity.currentTime)
                     .offset(y: 20)
                     .rotationEffect(.degrees(90))
                     .opacity(deviceOrientation == .landscapeRight ? 1 : 0)
                     .animation(.easeInOut(duration: 0.3), value: deviceOrientation)
                 Spacer()
                 
-                RecordingTimeView(time: .init())
+                RecordingTimeView(time: camera.captureActivity.currentTime)
                     .offset(y: 20)
                     .rotationEffect(.degrees(-90))
                     .opacity(deviceOrientation == .landscapeLeft ? 1 : 0)
@@ -34,12 +34,14 @@ struct CameraUI<CameraModel: Camera>: View {
             
             VStack {
                 ZStack {
-                    RecordingTimeView(time: .init())
+                    RecordingTimeView(time: camera.captureActivity.currentTime)
                         .opacity(deviceOrientation == .portrait ? 1 : 0)
                         .animation(.easeInOut(duration: 0.3), value: deviceOrientation)
                     
                     HStack {
-                        RecordingStatusView(camera: camera)
+                        if camera.captureActivity.isRecording {
+                            RecordingStatusView()
+                        }
                         Spacer()
                         DisplayResolutionAndHertzButton(camera: camera, deviceOrientation: deviceOrientation)
                     }
@@ -49,20 +51,24 @@ struct CameraUI<CameraModel: Camera>: View {
                 Spacer()
                 
                 HStack {
-                    ThumbnailButton(deviceOrientation: deviceOrientation)
+                    if camera.captureActivity.isRecording == false {
+                        ThumbnailButton(deviceOrientation: deviceOrientation)
+                    }
                     Spacer()
                     
                     RecordButton(camera: camera)
                     Spacer()
                     
-                    SwitchCameraButton(camera: camera, deviceOrientation: deviceOrientation)
+                    if camera.captureActivity.isRecording == false {
+                        SwitchCameraButton(camera: camera, deviceOrientation: deviceOrientation)
+                    }
                 }
                 .padding(.horizontal)
             }
             .onAppear {
                 motionManager.deviceMotionUpdateInterval = 0.5
                 motionManager.startDeviceMotionUpdates(to: queue) { motion, error in
-                    if let motion {
+                    if let motion, camera.captureActivity.isRecording == false {
                         DispatchQueue.main.async {
                             if abs(motion.attitude.roll) > 0.9 {
                                 if motion.attitude.roll < 0 {

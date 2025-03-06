@@ -8,12 +8,11 @@ struct RecordButton<CameraModel: Camera>: View {
     private let buttonSize: CGFloat = 68
     
     var body: some View {
-        VideoCaptureButton(
-            isRecording: $isRecording) { _ in
-                
-            }
-            .aspectRatio(1.0, contentMode: .fit)
-            .frame(width: buttonSize)
+        VideoCaptureButton(isRecording: $isRecording) { _ in
+            camera.toggleRecording()
+        }
+        .aspectRatio(1.0, contentMode: .fit)
+        .frame(width: buttonSize)
     }
 }
 

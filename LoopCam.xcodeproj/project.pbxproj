@@ -27,6 +27,9 @@
 		7F6036672D751B5A005125E9 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036662D751B5A005125E9 /* CameraPreview.swift */; };
 		7F60366A2D75735B005125E9 /* CameraStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036692D75735B005125E9 /* CameraStatus.swift */; };
 		7F60366C2D75C9E9005125E9 /* PreviewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60366B2D75C9E9005125E9 /* PreviewSource.swift */; };
+		7F6036792D76F8B3005125E9 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036782D76F8B3005125E9 /* VideoCapture.swift */; };
+		7F60367B2D76FE08005125E9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60367A2D76FE08005125E9 /* Video.swift */; };
+		7F60368D2D792D50005125E9 /* CaptureActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60368C2D792D50005125E9 /* CaptureActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 		7F6036662D751B5A005125E9 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		7F6036692D75735B005125E9 /* CameraStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStatus.swift; sourceTree = "<group>"; };
 		7F60366B2D75C9E9005125E9 /* PreviewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSource.swift; sourceTree = "<group>"; };
+		7F6036782D76F8B3005125E9 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		7F60367A2D76FE08005125E9 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		7F60368C2D792D50005125E9 /* CaptureActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -146,11 +152,12 @@
 		7F60361B2D6DC225005125E9 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				7F60361A2D6DC225005125E9 /* Camera.swift */,
+				7F6036752D76E910005125E9 /* Data */,
 				7F6036562D728AE7005125E9 /* CaptureService.swift */,
 				7F6036642D732480005125E9 /* CameraError.swift */,
 				7F6036662D751B5A005125E9 /* CameraPreview.swift */,
 				7F60366B2D75C9E9005125E9 /* PreviewSource.swift */,
+				7F6036782D76F8B3005125E9 /* VideoCapture.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -225,6 +232,16 @@
 				7F6036692D75735B005125E9 /* CameraStatus.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7F6036752D76E910005125E9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7F60361A2D6DC225005125E9 /* Camera.swift */,
+				7F60367A2D76FE08005125E9 /* Video.swift */,
+				7F60368C2D792D50005125E9 /* CaptureActivity.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +397,7 @@
 				7F6036292D6DC225005125E9 /* CameraModel.swift in Sources */,
 				7F60362A2D6DC225005125E9 /* CameraView.swift in Sources */,
 				7F60363A2D6F51B7005125E9 /* RecordButton.swift in Sources */,
+				7F60368D2D792D50005125E9 /* CaptureActivity.swift in Sources */,
 				7F60362B2D6DC225005125E9 /* ContentView.swift in Sources */,
 				7F6036312D6EDDFD005125E9 /* RecordingTimeView.swift in Sources */,
 				7F60362C2D6DC225005125E9 /* LoopCamApp.swift in Sources */,
@@ -388,8 +406,10 @@
 				7F6036382D6EE657005125E9 /* CameraUI.swift in Sources */,
 				7F6036572D728AE7005125E9 /* CaptureService.swift in Sources */,
 				7F60366A2D75735B005125E9 /* CameraStatus.swift in Sources */,
+				7F6036792D76F8B3005125E9 /* VideoCapture.swift in Sources */,
 				7F60363E2D6F6172005125E9 /* SwitchCameraButton.swift in Sources */,
 				7F60363C2D6F5ED4005125E9 /* ThumbnailButton.swift in Sources */,
+				7F60367B2D76FE08005125E9 /* Video.swift in Sources */,
 				7F6036652D732480005125E9 /* CameraError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

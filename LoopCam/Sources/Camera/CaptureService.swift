@@ -4,6 +4,8 @@ import Combine
 
 actor CaptureService {
     
+    @Published private(set) var captureActivity: CaptureActivity = .idle
+    
     private let session = AVCaptureSession()
     private var isSetUp = false
     
@@ -54,6 +56,7 @@ actor CaptureService {
     
     private func setupSession() throws {
         guard !isSetUp else { return }
+        videoCapture.$activity.assign(to: &$captureActivity)
         
         do {
             //FIXME: - Fix Hard Coding
@@ -64,11 +67,7 @@ actor CaptureService {
             
             deviceInput = try addInput(for: defaultDevice)
             
-            let photoOutput = AVCapturePhotoOutput()
-            try addOutput(photoOutput)
-            
-            let videoOutput = AVCaptureVideoDataOutput()
-            try addOutput(videoOutput)
+            try addOutput(videoCapture.output)
             setDisplayResolution()
             
             isSetUp = true
@@ -90,5 +89,13 @@ actor CaptureService {
     // MARK: - Automatic focus and exposure handling
     
     // MARK: - Capture handling
+    private let videoCapture = VideoCapture()
     
+    func startRecording() {
+        videoCapture.record()
+    }
+    
+    func stopRecording() async throws -> Video {
+        try await videoCapture.stop()
+    }
 }

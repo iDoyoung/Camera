@@ -40,6 +40,7 @@ struct DisplayResolutionAndHertzButton<CameraModel: Camera>: View {
             .debugBorder()
             .rotationEffect(rotationAngle(for: deviceOrientation), anchor: .center)
             .animation(.easeInOut(duration: 0.3), value: deviceOrientation)
+            .disabled(camera.captureActivity.isRecording)
             
             Text("・")
                 .padding(.horizontal, 4)
@@ -68,6 +69,7 @@ struct DisplayResolutionAndHertzButton<CameraModel: Camera>: View {
             .debugBorder()
             .rotationEffect(rotationAngle(for: deviceOrientation), anchor: .center)
             .animation(.easeInOut(duration: 0.3), value: deviceOrientation)
+            .disabled(camera.captureActivity.isRecording)
         }
         .padding(.trailing)
     }
