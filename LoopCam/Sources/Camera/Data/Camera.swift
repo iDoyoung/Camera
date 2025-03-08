@@ -6,4 +6,5 @@ protocol Camera: AnyObject {
     
     func start() async
     func toggleRecording()
+    func switchCamera()
 }

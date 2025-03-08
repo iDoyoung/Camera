@@ -38,6 +38,12 @@ final class CameraModel: Camera {
         }
     }
     
+    func switchCamera() {
+        Task { @MainActor in
+            await service.switchCaptureDevice()
+        }
+    }
+    
     private func observeCaptureActivity() {
         Task {
             for await activity in await service.$captureActivity.values {

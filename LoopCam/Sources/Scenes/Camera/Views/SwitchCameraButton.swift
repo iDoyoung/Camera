@@ -15,7 +15,7 @@ struct SwitchCameraButton<CameraModel: Camera>: View {
                 .frame(width: size)
             
             Button {
-                
+                camera.switchCamera()
             } label: {
                 Image(systemName: "arrow.triangle.2.circlepath")
                     .font(.system(size: size/2))

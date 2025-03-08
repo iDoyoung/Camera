@@ -9,8 +9,31 @@ actor CaptureService {
     private let session = AVCaptureSession()
     private var isSetUp = false
     
-    private var output: AVCapturePhotoOutput?
     private var deviceInput: AVCaptureDeviceInput?
+    private var currentDevice: AVCaptureDevice {
+        guard let device = deviceInput?.device else { fatalError("No device input") }
+        return  device
+    }
+    
+    // Devices
+    private var defaultCamera: AVCaptureDevice {
+        if AVCaptureDevice.systemPreferredCamera == nil {
+            AVCaptureDevice.userPreferredCamera = backCameraDiscoverySession.devices.first
+        }
+        
+        guard let videoDevice = AVCaptureDevice.systemPreferredCamera else {
+            fatalError("No default camera")
+        }
+        return videoDevice
+    }
+    
+    private let backCameraDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [ .builtInDualCamera, .builtInWideAngleCamera],
+                                                                              mediaType: .video,
+                                                                              position: .back)
+    
+    private let frontCameraDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTrueDepthCamera, .builtInWideAngleCamera],
+                                                                               mediaType: .video,
+                                                                               position: .front)
     
     var isAuthorized: Bool {
         get async {
@@ -61,11 +84,7 @@ actor CaptureService {
         do {
             //FIXME: - Fix Hard Coding
             session.sessionPreset = .hd4K3840x2160
-            guard let defaultDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
-                                                              for: .video,
-                                                              position: .unspecified) else { return }
-            
-            deviceInput = try addInput(for: defaultDevice)
+            deviceInput = try addInput(for: defaultCamera)
             
             try addOutput(videoCapture.output)
             setDisplayResolution()
@@ -78,6 +97,36 @@ actor CaptureService {
     
     // MARK: - Preview handling
     nonisolated var previewSource: PreviewSource { DefaultPreviewSource(session: session) }
+    
+    func switchCaptureDevice() {
+        guard let currentInput = deviceInput else { return }
+        session.beginConfiguration()
+        defer  { session.commitConfiguration() }
+        
+        let position = currentDevice.position
+        session.removeInput(currentInput)
+        var device: AVCaptureDevice?
+        do {
+            switch position {
+            case .back:
+                device = frontCameraDiscoverySession.devices.first
+            case .front:
+                device = backCameraDiscoverySession.devices.first
+            case .unspecified:
+                break
+            @unknown default:
+                break
+            }
+            
+            guard let device else {
+                throw CameraError.deviceChangeFailed
+            }
+            deviceInput = try addInput(for: device)
+        } catch {
+            session.addInput(currentInput)
+        }
+        AVCaptureDevice.userPreferredCamera = device
+    }
     
     // MARK: - Display resolution and hertz handling
     
