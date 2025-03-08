@@ -6,13 +6,7 @@ struct DisplayResolutionAndHertzButton<CameraModel: Camera>: View {
     var deviceOrientation: DeviceOrientation
     
     //Mock
-    @State var displayResolution: DisplayResolution = .hd
     @State var hertz: Hertz = .sixty
-    
-    enum DisplayResolution: String {
-        case hd = "HD"
-        case uhd = "4k"
-    }
     
     enum Hertz: String {
         case twentyFour = "24"
@@ -24,17 +18,17 @@ struct DisplayResolutionAndHertzButton<CameraModel: Camera>: View {
         HStack {
             Button {
                 // 가독성 고려해 보기
-                displayResolution = (displayResolution == .hd) ? .uhd : .hd
-                
-                if displayResolution == .uhd,
+                camera.setDisplayResolution((camera.displayResolution == .HD1080p) ? .UHD4K: .HD1080p)
+                 
+                if camera.displayResolution == .UHD4K,
                    hertz == .twentyFour {
                     hertz = .thirty
                 }
             } label: {
-                Text(displayResolution.rawValue)
-                    .foregroundStyle(displayResolution == .uhd ? .yellow : .white)
+                Text(camera.displayResolution.text)
                     .font(.system(size: 13))
-                    .fontWeight((displayResolution == .uhd ? .medium : .regular))
+                    .foregroundStyle(camera.displayResolution == .UHD4K ? .yellow : .white)
+                    .fontWeight((camera.displayResolution == .UHD4K ? .medium : .regular))
                     .monospacedDigit()
             }
             .debugBorder()
@@ -46,11 +40,11 @@ struct DisplayResolutionAndHertzButton<CameraModel: Camera>: View {
                 .padding(.horizontal, 4)
             
             Button {
-                switch displayResolution {
-                case .hd:
+                switch camera.displayResolution {
+                case .UHD4K:
                     // 가독성 고려해 보기
                     hertz = (hertz == .sixty) ? .thirty : .sixty
-                case .uhd:
+                default:
                     switch hertz {
                     case .twentyFour:
                         hertz = .thirty

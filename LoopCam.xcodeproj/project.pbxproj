@@ -30,6 +30,8 @@
 		7F6036792D76F8B3005125E9 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036782D76F8B3005125E9 /* VideoCapture.swift */; };
 		7F60367B2D76FE08005125E9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60367A2D76FE08005125E9 /* Video.swift */; };
 		7F60368D2D792D50005125E9 /* CaptureActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60368C2D792D50005125E9 /* CaptureActivity.swift */; };
+		7F6036A02D7BFC37005125E9 /* DisplayResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60369F2D7BFC37005125E9 /* DisplayResolution.swift */; };
+		7F6036A42D7C329D005125E9 /* CameraGlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6036A32D7C329D005125E9 /* CameraGlobalVariable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		7F6036782D76F8B3005125E9 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		7F60367A2D76FE08005125E9 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		7F60368C2D792D50005125E9 /* CaptureActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureActivity.swift; sourceTree = "<group>"; };
+		7F60369F2D7BFC37005125E9 /* DisplayResolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayResolution.swift; sourceTree = "<group>"; };
+		7F6036A32D7C329D005125E9 /* CameraGlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraGlobalVariable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -152,6 +156,7 @@
 		7F60361B2D6DC225005125E9 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				7F6036A32D7C329D005125E9 /* CameraGlobalVariable.swift */,
 				7F6036752D76E910005125E9 /* Data */,
 				7F6036562D728AE7005125E9 /* CaptureService.swift */,
 				7F6036642D732480005125E9 /* CameraError.swift */,
@@ -240,6 +245,7 @@
 				7F60361A2D6DC225005125E9 /* Camera.swift */,
 				7F60367A2D76FE08005125E9 /* Video.swift */,
 				7F60368C2D792D50005125E9 /* CaptureActivity.swift */,
+				7F60369F2D7BFC37005125E9 /* DisplayResolution.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 			files = (
 				7F6036492D718212005125E9 /* RecordingStatusView.swift in Sources */,
 				7F60362E2D6DC24F005125E9 /* View+DebugBorder.swift in Sources */,
+				7F6036A02D7BFC37005125E9 /* DisplayResolution.swift in Sources */,
 				7F6036282D6DC225005125E9 /* Camera.swift in Sources */,
 				7F6036472D717229005125E9 /* DisplayResolutionAndHertzButton.swift in Sources */,
 				7F6036292D6DC225005125E9 /* CameraModel.swift in Sources */,
@@ -411,6 +418,7 @@
 				7F60363C2D6F5ED4005125E9 /* ThumbnailButton.swift in Sources */,
 				7F60367B2D76FE08005125E9 /* Video.swift in Sources */,
 				7F6036652D732480005125E9 /* CameraError.swift in Sources */,
+				7F6036A42D7C329D005125E9 /* CameraGlobalVariable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

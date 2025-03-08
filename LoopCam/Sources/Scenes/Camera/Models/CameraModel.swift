@@ -4,9 +4,11 @@ import Foundation
 final class CameraModel: Camera {
     
     private let service = CaptureService()
-    private(set) var status: CameraStatus = .unknown
     
+    private(set) var status: CameraStatus = .unknown
     private(set) var captureActivity: CaptureActivity = .idle
+    private(set) var displayResolution: DisplayResolution = .HD1080p
+    
     var previewSource: PreviewSource { service.previewSource }
     
     func start() async {
@@ -41,6 +43,18 @@ final class CameraModel: Camera {
     func switchCamera() {
         Task { @MainActor in
             await service.switchCaptureDevice()
+        }
+    }
+    
+    func setDisplayResolution(_ resolution: DisplayResolution) {
+        displayResolution = resolution
+        Task {
+            do {
+                try await service.setDisplayResolution(resolution)
+            } catch {
+                //에러 발생시 HD 화질
+                displayResolution = .HD1080p
+            }
         }
     }
     

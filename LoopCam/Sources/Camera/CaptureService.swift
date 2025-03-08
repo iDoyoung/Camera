@@ -31,7 +31,7 @@ actor CaptureService {
                                                                               mediaType: .video,
                                                                               position: .back)
     
-    private let frontCameraDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTrueDepthCamera, .builtInWideAngleCamera],
+    private let frontCameraDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTripleCamera, .builtInTrueDepthCamera, .builtInWideAngleCamera],
                                                                                mediaType: .video,
                                                                                position: .front)
     
@@ -87,7 +87,7 @@ actor CaptureService {
             deviceInput = try addInput(for: defaultCamera)
             
             try addOutput(videoCapture.output)
-            setDisplayResolution()
+            try setDisplayResolution(.HD1080p)
             
             isSetUp = true
         } catch {
@@ -128,11 +128,19 @@ actor CaptureService {
         AVCaptureDevice.userPreferredCamera = device
     }
     
-    // MARK: - Display resolution and hertz handling
+    // MARK: - Display resolution and frame rates handling
     
-    func setDisplayResolution() {
+    func setDisplayResolution(_ resolution: DisplayResolution) throws {
         session.beginConfiguration()
         defer { session.commitConfiguration() }
+        do {
+            try currentDevice.lockForConfiguration()
+            session.sessionPreset = resolution.preset
+            currentDevice.unlockForConfiguration()
+        } catch {
+            throw CameraError.setupFailed
+        }
+        logger.log("Current display resolution: \(String(describing: self.session.sessionPreset))")
     }
     
     // MARK: - Automatic focus and exposure handling
