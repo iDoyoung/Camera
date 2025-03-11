@@ -27,11 +27,11 @@ actor CaptureService {
         return videoDevice
     }
     
-    private let backCameraDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [ .builtInDualCamera, .builtInWideAngleCamera],
+    private let backCameraDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTripleCamera, .builtInDualCamera, .builtInWideAngleCamera],
                                                                               mediaType: .video,
                                                                               position: .back)
     
-    private let frontCameraDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTripleCamera, .builtInTrueDepthCamera, .builtInWideAngleCamera],
+    private let frontCameraDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTrueDepthCamera, .builtInWideAngleCamera],
                                                                                mediaType: .video,
                                                                                position: .front)
     
@@ -140,7 +140,36 @@ actor CaptureService {
         } catch {
             throw CameraError.setupFailed
         }
-        logger.log("Current display resolution: \(String(describing: self.session.sessionPreset))")
+        logger.log("Current display resolution: \(String(describing: self.session.sessionPreset))\nFrame rate: \(String(describing: self.currentDevice.activeFormat.videoSupportedFrameRateRanges))")
+    }
+    
+    func setFrameRate(_ frameRate: FrameRate) throws {
+        
+        try currentDevice.lockForConfiguration()
+        let currentDimensions = CMVideoFormatDescriptionGetDimensions(currentDevice.activeFormat.formatDescription)
+        let timescale = CMTimeScale(frameRate.rawValue)
+        var selectedFormat: AVCaptureDevice.Format? = nil
+        
+        for format in currentDevice.formats {
+            let dimensions = CMVideoFormatDescriptionGetDimensions(format.formatDescription)
+            let ranges = format.videoSupportedFrameRateRanges
+           
+            if ranges.contains(where: { $0.maxFrameRate == Double(frameRate.rawValue) }) {
+                if dimensions.height == currentDimensions.height && dimensions.width == currentDimensions.width {
+                    selectedFormat = format
+                }
+            }
+        }
+        
+        if let selectedFormat = selectedFormat {
+            currentDevice.activeFormat = selectedFormat
+            currentDevice.activeVideoMinFrameDuration = CMTime(value: 1, timescale: timescale)
+            currentDevice.activeVideoMaxFrameDuration = CMTime(value: 1, timescale: timescale)
+            
+            logger.log("Current display resolution: \(String(describing: self.session.sessionPreset.rawValue))\nFrame rate: \(String(describing: self.currentDevice.activeFormat.videoSupportedFrameRateRanges))")
+        }
+        
+        currentDevice.unlockForConfiguration()
     }
     
     // MARK: - Automatic focus and exposure handling

@@ -4,10 +4,7 @@ struct DisplayResolutionAndHertzButton<CameraModel: Camera>: View {
     
     @State var camera: CameraModel
     var deviceOrientation: DeviceOrientation
-    
-    //Mock
-    @State var hertz: Hertz = .sixty
-    
+   
     enum Hertz: String {
         case twentyFour = "24"
         case thirty = "30"
@@ -18,11 +15,8 @@ struct DisplayResolutionAndHertzButton<CameraModel: Camera>: View {
         HStack {
             Button {
                 // 가독성 고려해 보기
-                camera.setDisplayResolution((camera.displayResolution == .HD1080p) ? .UHD4K: .HD1080p)
-                 
-                if camera.displayResolution == .UHD4K,
-                   hertz == .twentyFour {
-                    hertz = .thirty
+                Task { @MainActor in
+                    await camera.setDisplayResolution((camera.displayResolution == .HD1080p) ? .UHD4K: .HD1080p)
                 }
             } label: {
                 Text(camera.displayResolution.text)
@@ -40,22 +34,17 @@ struct DisplayResolutionAndHertzButton<CameraModel: Camera>: View {
                 .padding(.horizontal, 4)
             
             Button {
-                switch camera.displayResolution {
-                case .UHD4K:
-                    // 가독성 고려해 보기
-                    hertz = (hertz == .sixty) ? .thirty : .sixty
-                default:
-                    switch hertz {
-                    case .twentyFour:
-                        hertz = .thirty
-                    case .thirty:
-                        hertz = .sixty
-                    case .sixty:
-                        hertz = .twentyFour
+                Task { @MainActor in
+                    let frameRate = camera.frameRate
+                    switch frameRate {
+                    case .fps30:
+                        await camera.setFrameRate(.fps60)
+                    case .fps60:
+                        await camera.setFrameRate(.fps30)
                     }
                 }
             } label: {
-                Text(hertz.rawValue)
+                Text(camera.frameRate.text)
                     .foregroundStyle(.white)
                         .monospacedDigit()
                     .font(.system(size: 13, weight: .regular))

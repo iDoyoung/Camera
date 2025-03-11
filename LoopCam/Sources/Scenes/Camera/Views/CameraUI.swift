@@ -43,7 +43,8 @@ struct CameraUI<CameraModel: Camera>: View {
                             RecordingStatusView()
                         }
                         Spacer()
-                        DisplayResolutionAndHertzButton(camera: camera, deviceOrientation: deviceOrientation)
+                        DisplayResolutionAndHertzButton(camera: camera,
+                                                        deviceOrientation: deviceOrientation)
                     }
                 }
                 .background(.black)
